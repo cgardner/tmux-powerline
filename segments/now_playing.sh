@@ -54,6 +54,7 @@ run_segment() {
 		"rhythmbox")  np=$(__np_rhythmbox) ;;
 		"spotify")  np=$(__np_spotify) ;;
 		"spotify_wine")  np=$(__np_spotify_native) ;;
+		"pianobar")  np=$(__np_pianobar) ;;
 		*)
 			echo "Unknown music player type [${TMUX_POWERLINE_SEG_NOW_PLAYING_MUSIC_PLAYER}]";
 			return 1
@@ -110,6 +111,10 @@ __np_mpd() {
 
 	np=$(MPD_HOST="$TMUX_POWERLINE_SEG_NOW_PLAYING_MPD_HOST" MPD_PORT="$TMUX_POWERLINE_SEG_NOW_PLAYING_MPD_PORT" ./np_mpd)
 	echo "$np"
+}
+
+__np_pianobar() {
+	cat /tmp/pianobar
 }
 
 __np_audacious() {
